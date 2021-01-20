@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  header.w3-container.w3-pale-blue
+    h1 Classe #{classe.codigo} - Nível #{classe.nivel}
+  .w3-container.w3-padding
+    h3 Título:
+    span  #{classe.titulo}
+    p
+      h3 Descrição: 
+      span  #{classe.descricao}
+    p
+      h3 Status: 
+      span  #{classe.status}
+    if desc.length
+      p
+        h3 Descendentes: 
+        ul
+          each d in desc
+            li 
+              adress
+                a(href=`/classe/c${d.codigo}`) #{d.codigo}
+              span  - #{d.titulo}
+  footer.w3-container.w3-pale-blue.w3-padding-medium
+    address.w3-padding-16
+        a(href=`/`) Inicio
+        a(href="javascript:history.back()").w3-right Voltar atrás
+
+    
